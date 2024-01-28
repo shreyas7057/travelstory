@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="jumbotron jumbotron-fluid mt-4">
+  <div class="container">
+    <h1 class="display-2 text-center">{{ story.story_title }}</h1>
+    <p class="lead">{{ story.trip_highlights }}</p>
+  </div>
+</div>
+
+<h1 class="text-center mb-4">Place Name: {{ story.place_name }}, City Name: {{ story.city_name }}</h1>
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <img src="{{ story.thumbnail.url }}" class="img-fluid">
+    </div>
+    <div class="col">
+      <img src="{{ story.photos.url }}" class="img-fluid">
+    </div>
+  </div>
+</div>
+
+<div class="container mt-4">
+  <h4>Near By Places to Visit: {{ story.nearby_places }}</h4>
+  <h4>Precautions should be taken: {{ story.precautions }}</h4>
+  <h4>Best Season to visit: {{ story.visit_season }}</h4>
+</div>
+
+<div>
+  <h4>
+    Experience in Detail
+  </h4>
+  <span>
+    {{ story.brief_summary|safe }}
+  </span>
+</div>
+
+
+{% endblock content %}

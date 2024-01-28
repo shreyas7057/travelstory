@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<div class="d-flex flex-row mr-4">
+    {% for story in stories %}
+
+    <div class="card mt-4 mx-4" style="width: 18rem;">
+        <img src="{{ story.thumbnail.url }}" class="card-img-top" alt="{{ story.place_name }} Image">
+        <div class="card-body">
+            <h5 class="card-title">{{ story.story_title }}</h5>
+            <p class="card-text">{{ story.trip_highlights|truncatewords:30 }}</p>
+            <a href="{% url 'detail_story' story.id %}" class="btn btn-secondary">Read Full Story</a>
+        </div>
+    </div>
+
+
+    {% endfor %}
+</div>
+
+{% endblock content %}

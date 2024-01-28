@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col mt-4">
+            <img src="{% static 'images/login_image.jpg' %}" class="img-fluid"/>
+        </div>
+        <div class="col mt-4">
+            <div class="container border border-primary">
+                <h1>Login As Traveler</h1>
+
+                <form method="POST">
+                    {% csrf_token %}
+
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" >Email address</label>
+                        <input type="email" class="form-control" name="email" placeholder="name@example.com">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1">Password</label>
+                        <input type="password" class="form-control" placeholder="Password" name='password'>
+                    </div>
+
+                    <div class="row">
+                        <div class="col s6">
+                            <button type="submit" class="btn btn-primary">Login</button>
+                        </div>
+                        <div class="col s6">
+                            <p>Don't have account?
+                                <a href="{% url 'register-user' %}">Click here</a>
+                            </p>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}
